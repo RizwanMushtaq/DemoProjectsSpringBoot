@@ -22,8 +22,7 @@ public class TradeController {
 
   @PostMapping
   public ResponseEntity<TradeDto> create(@Valid @RequestBody TradeDto tradeDto) {
-    logger.info("Creating Trade...", tradeDto.getSymbol());
-    System.out.println(tradeDto);
+    logger.info("creating trade: {}", tradeDto);
     TradeDto createdTradeDto = tradeService.create(tradeDto);
     return new ResponseEntity<>(createdTradeDto, HttpStatus.CREATED);
   }
