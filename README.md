@@ -1,1 +1,1 @@
-# Demo Projects to learn and practise Spring Boot
+# Demo Projects to figure out Spring Boot
