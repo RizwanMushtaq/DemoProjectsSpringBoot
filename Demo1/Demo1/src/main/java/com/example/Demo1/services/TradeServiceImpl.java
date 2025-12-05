@@ -18,7 +18,10 @@ public class TradeServiceImpl implements TradeService {
   @Override
   public TradeDto create(TradeDto tradeDto) {
     TradeEntity tradeEntity = modelMapper.map(tradeDto, TradeEntity.class);
+    tradeEntity.setId(null);
+    System.out.println(tradeEntity);
     TradeEntity savedTradeEntity = tradeRepository.save(tradeEntity);
+    System.out.println(savedTradeEntity);
     return modelMapper.map(savedTradeEntity, TradeDto.class);
   }
 }

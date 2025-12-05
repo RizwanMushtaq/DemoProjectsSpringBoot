@@ -4,20 +4,29 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
+@Getter
+@Setter
 @Entity
 public class TradeEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private int id;
+  private Integer id;
+  @NotNull
   private String type;
-  private int userId;
+  @NotNull
+  private Integer userId;
+  @NotNull
   private String symbol;
+  @NotNull
   private String shares;
+  @NotNull
   private String price;
-  private long timestamp;
+  @NotNull
+  private Integer timestamp;
 }
