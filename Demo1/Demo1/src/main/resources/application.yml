@@ -2,7 +2,18 @@ spring:
   application:
     name: Demo1
   profiles:
-    active: prod
+    active: ${SPRING_PROFILES_ACTIVE}
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: ${SPRING_JPA_DATABASE_PLATFORM}
 
 spring doc:
   api-docs:

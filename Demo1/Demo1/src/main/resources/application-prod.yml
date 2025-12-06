@@ -1,17 +1,3 @@
-spring:
-  datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
-
-  jpa:
-    hibernate:
-      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
-    show-sql: false
-    properties:
-      hibernate:
-        dialect: ${SPRING_JPA_DATABASE_PLATFORM}
-
 logging:
   level:
     root: WARN
@@ -22,6 +8,16 @@ server:
   error:
     include-stacktrace: never
 
+
+#  Summary — Endpoints you get with *
+#  Category	Endpoints
+#  Core	health, info
+#  Config & Environment	env, beans, configprops, conditions, mappings, loggers
+#  Monitoring	metrics, metrics/*, prometheus
+#  Debugging	threaddump, heapdump, httpexchanges
+#  Integrations	flyway, liquibase, caches, quartz, etc.
+#  Optional	shutdown
+
 management:
   endpoints:
     web:
@@ -30,3 +26,6 @@ management:
   metics:
     enable:
       http.server.requests: true
+  endpoint:
+    heap dump:
+      enabled: true
