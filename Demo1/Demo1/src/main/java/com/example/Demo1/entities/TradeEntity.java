@@ -12,6 +12,7 @@ import lombok.*;
 @ToString
 @Getter
 @Setter
+@Builder
 @Entity
 public class TradeEntity {
   @Id
@@ -24,9 +25,9 @@ public class TradeEntity {
   @NotNull
   private String symbol;
   @NotNull
-  private String shares;
+  private Integer shares;
   @NotNull
-  private String price;
+  private Integer price;
   @NotNull
   private Integer timestamp;
 }

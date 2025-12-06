@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class TradeDto {
   private Integer id;
   @NotNull
@@ -17,9 +18,9 @@ public class TradeDto {
   @NotNull
   private String symbol;
   @NotNull
-  private String shares;
+  private Integer shares;
   @NotNull
-  private String price;
+  private Integer price;
   @NotNull
   private Integer timestamp;
 }
