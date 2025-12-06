@@ -28,7 +28,11 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: conditions, beans, health, metrics
+  metics:
+    enable:
+      http.server.requests: true
+
   endpoint:
     heap dump:
       enabled: true
