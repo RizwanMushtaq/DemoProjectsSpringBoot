@@ -15,3 +15,9 @@ logging:
 server:
   error:
     include-stacktrace: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "conditions, beans"

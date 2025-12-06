@@ -12,3 +12,24 @@ spring:
 logging:
   level:
     root: INFO
+
+#  Summary — Endpoints you get with *
+#  Category	Endpoints
+#  Core	health, info
+#  Config & Environment	env, beans, configprops, conditions, mappings, loggers
+#  Monitoring	metrics, metrics/*, prometheus
+#  Debugging	threaddump, heapdump, httpexchanges
+#  Integrations	flyway, liquibase, caches, quartz, etc.
+#  Optional	shutdown
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    heap dump:
+      enabled: true
+
+
+
