@@ -10,3 +10,5 @@ spring:
 logging:
   level:
     root: INFO
+    com.example.demo1: INFO
+    org.springframework.web: INFO

@@ -11,6 +11,8 @@ spring:
 logging:
   level:
     root: WARN
+    com.example.demo1: WARN
+    org.springframework.web: WARN
 
 server:
   error:

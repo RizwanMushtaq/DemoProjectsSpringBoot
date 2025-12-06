@@ -12,6 +12,8 @@ spring:
 logging:
   level:
     root: DEBUG
+    com.example.demo1: DEBUG
+    org.springframework.web: DEBUG
 
 #  Summary — Endpoints you get with *
 #  Category	Endpoints
