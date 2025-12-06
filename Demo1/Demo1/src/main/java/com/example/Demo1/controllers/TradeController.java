@@ -2,6 +2,7 @@ package com.example.Demo1.controllers;
 
 import com.example.Demo1.dtos.TradeDto;
 import com.example.Demo1.services.TradeService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/trades")
+@Tag(name = "Trade Controller", description = "CRUD operations for trades")
 public class TradeController {
   Logger logger = LoggerFactory.getLogger(TradeController.class);
   @Autowired
