@@ -52,6 +52,7 @@ public class TradeServiceImpl implements TradeService {
   @Override
   public TradeDto updateById(Integer id, TradeDto tradeDto) {
     TradeEntity existing = getTradeEntity(id);
+    tradeDto.setId(existing.getId());
     modelMapper.map(tradeDto, existing);
     TradeEntity updatedTradeEntity = tradeRepository.save(existing);
     return mapToDto(updatedTradeEntity);
