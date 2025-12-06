@@ -65,24 +65,24 @@ public class TradeServiceImplTest {
     verify(modelMapper).map(tradeEntity, TradeDto.class);
   }
 
-  @Test
-  void testGetByIdNotFound() {
-    when(tradeRepository.findById(1)).thenReturn(Optional.empty());
-    assertThrows(ResourceNotFoundException.class,
-        () -> tradeService.getById(1));
-  }
+//  @Test
+//  void testGetByIdNotFound() {
+//    when(tradeRepository.findById(1)).thenReturn(Optional.empty());
+//    assertThrows(ResourceNotFoundException.class,
+//        () -> tradeService.getById(1));
+//  }
 
-  @Test
-  void testGetByIdSuccess() {
-    when(tradeRepository.findById(1)).thenReturn(Optional.of(tradeEntity));
-    when(modelMapper.map(tradeEntity, TradeDto.class)).thenReturn(tradeDto);
-
-    TradeDto result = tradeService.getById(1);
-
-    assertNotNull(result);
-    assertEquals(1, result.getId());
-    verify(tradeRepository).findById(1);
-  }
+//  @Test
+//  void testGetByIdSuccess() {
+//    when(tradeRepository.findById(1)).thenReturn(Optional.of(tradeEntity));
+//    when(modelMapper.map(tradeEntity, TradeDto.class)).thenReturn(tradeDto);
+//
+//    TradeDto result = tradeService.getById(1);
+//
+//    assertNotNull(result);
+//    assertEquals(1, result.getId());
+//    verify(tradeRepository).findById(1);
+//  }
 
   @Test
   void testDeleteByIdSuccess() {

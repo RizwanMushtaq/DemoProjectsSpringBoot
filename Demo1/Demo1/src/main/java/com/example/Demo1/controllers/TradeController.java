@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/trades")
@@ -36,9 +37,10 @@ public class TradeController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<TradeDto> getTradeById(@PathVariable Integer id) {
-    logger.info("getting trade by id: {}", id);
-    TradeDto tradeDto = tradeService.getById(id);
+  public ResponseEntity<TradeDto> getTradeById(@PathVariable Integer id,
+                                               Locale locale) {
+    logger.info("getting trade by id: {} Locale: {}", id, locale);
+    TradeDto tradeDto = tradeService.getById(id, locale);
     return new ResponseEntity<>(tradeDto, HttpStatus.OK);
   }
 

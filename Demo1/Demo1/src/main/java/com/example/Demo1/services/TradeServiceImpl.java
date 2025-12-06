@@ -6,10 +6,13 @@ import com.example.Demo1.exceptions.ResourceNotFoundException;
 import com.example.Demo1.repositories.TradeRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Locale;
 
 @Service
 @Transactional
@@ -17,6 +20,9 @@ import java.util.List;
 public class TradeServiceImpl implements TradeService {
   private final TradeRepository tradeRepository;
   private final ModelMapper modelMapper;
+
+  @Autowired
+  private MessageSource messageSource;
 
   @Override
   public TradeDto create(TradeDto tradeDto) {
@@ -37,8 +43,11 @@ public class TradeServiceImpl implements TradeService {
 
   @Override
   @Transactional(readOnly = true)
-  public TradeDto getById(Integer id) {
-    TradeEntity existing = getTradeEntity(id);
+  public TradeDto getById(Integer id, Locale locale) {
+    TradeEntity existing =
+        tradeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
+            messageSource.getMessage("trade.not.found", null, locale)
+        ));
     return mapToDto(existing);
   }
 
