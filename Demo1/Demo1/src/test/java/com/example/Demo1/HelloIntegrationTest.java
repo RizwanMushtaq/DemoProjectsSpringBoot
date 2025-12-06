@@ -9,10 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class HelloIntegrationTest {
+  private final RestClient restClient = RestClient.create();
   @LocalServerPort
   private int port;
-
-  private RestClient restClient = RestClient.create();
 
   @Test
   void helloEndpoint_withName_returnsCustomGreeting() {
