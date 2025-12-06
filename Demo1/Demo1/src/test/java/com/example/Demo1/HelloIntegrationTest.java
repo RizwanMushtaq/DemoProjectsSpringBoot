@@ -23,4 +23,14 @@ public class HelloIntegrationTest {
         .body(String.class);
     assertEquals("Hello Rizwan", body);
   }
+
+  @Test
+  void helloEndpoint_withoutName() {
+    String url = "http://localhost:" + port + "/hello";
+    String body = restClient.get()
+        .uri(url)
+        .retrieve()
+        .body(String.class);
+    assertEquals("Hello world", body);
+  }
 }
